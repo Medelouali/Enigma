@@ -1,0 +1,55 @@
+.command {
+  display: grid;
+  grid-template-columns: auto 1fr 1px;
+}
+
+.command input {
+  justify-self: flex-start;
+  color: rgb(215, 215, 240);
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: #1e1e1e;
+  padding-right: 2px;
+  font-weight: 600;
+}
+
+.snippet {
+  width: 100%;
+  padding: 2px;
+}
+
+.command button {
+  display: none;
+}
+
+.arrows {
+  border: 0.5px solid blue;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  margin-right: 2px;
+}
+
+.right-arrow .MuiSvgIcon-root {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.right-arrow .MuiSvgIcon-root,
+.left-arrow .MuiSvgIcon-root {
+  opacity: 0.8;
+  transform: scale(0.8);
+}
+.left-arrow .MuiSvgIcon-root {
+  transform: translateX(50%) scale(0.8);
+}
+.outcome {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding-top: 4px;
+}
+
+.toRight {
+  padding: 2px;
+}

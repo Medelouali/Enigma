@@ -1,0 +1,27 @@
+.navbar {
+  margin: 1vw;
+  /* background-color: #d5c6ee; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.link {
+  width: max-content;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border: 1px solid rgb(100, 100, 218);
+  border-radius: 4px;
+}
+
+.link:hover {
+  background-color: rgb(147, 147, 218);
+  cursor: pointer;
+  color: whitesmoke;
+  background-color: black;
+  font-weight: 600;
+}

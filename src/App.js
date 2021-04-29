@@ -1,9 +1,12 @@
 import './App.css';
+import Browser from './components/browser/Browser';
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
     <div className="app">
-      Hello enigma
+      <Navbar/>
+      <Browser/>
     </div>
   );
 }
