@@ -5,14 +5,14 @@ import "./navbar.css";
 function Navbar() {
     return (
         <div className="navbar">
-            <Link name="Docs"/>
-            <Link name="Functions"/>
             <Link name="Matrix Mode"/>
             <Link name="Scalar Mode"/>
             <Link name="Enigma Interpreter"/>
+            <Link name="Graphs"/>
+            <Link name="Docs"/>
             <Link name="Tools"/>
         </div>
-    )
+    );
 }
 
 export default Navbar;
