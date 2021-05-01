@@ -29,6 +29,7 @@
   display: grid;
   grid-template-columns: max-content max-content;
   margin-right: 2px;
+  height: max-content;
 }
 
 .right-arrow .MuiSvgIcon-root {

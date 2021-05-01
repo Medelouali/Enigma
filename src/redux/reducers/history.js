@@ -5,6 +5,9 @@ const reducer=(state=[], action)=>{
         case "History":
             state=state.concat([action.payload]);
             return state;
+        case "CleanHistory":
+            state=[];
+            return state;
         default:
             return state;
     }

@@ -6,6 +6,8 @@ import enigma from "../../../logic/enigma";
 import { useDispatch } from "react-redux";
 
 import history from "../../../redux/actions/history";
+import { special } from '../../../logic/helpers/special';
+import cleanHistory from '../../../redux/actions/cleanHistory';
 
 function Snippet() {
     const [command, setCommand]=useState("");
@@ -14,9 +16,12 @@ function Snippet() {
 
     const sendCommand=(e)=>{
         e.preventDefault();
-        const response=enigma(command);
-
-        dispatch(history({ command, response }));
+        if(special(command)){
+            dispatch(cleanHistory("browser"));
+        }else{
+            const response=enigma(command);
+            dispatch(history({ command, response }));
+        };
         setCommand("");
     };
 

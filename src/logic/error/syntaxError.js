@@ -35,18 +35,18 @@ function order(command){
         text: ""
     };
     const cmd=`#${command}$`;
-    const acceptable_1=`#${acceptable}$`;
+    const row=`#${acceptable}`, colum=`${acceptable}$`;
     let index1=-1, index2=-1;
     for(let i=0; i<cmd.length-1; i++){
-        index1=acceptable_1.indexOf(cmd[i]);
-        index2=acceptable_1.indexOf(cmd[i+1]);
+        index1=row.indexOf(cmd[i]);
+        index2=colum.indexOf(cmd[i+1]);
         if(matrix[index1][index2]==="0"){
             err.flag=true;
-            if(acceptable_1[index1]==="#"){
+            if(row[index1]==="#"){
                 err.text=`Unkown sequence: ${cmd[i+1]} cannot be used at the beginning of a command
                 , please check out the Docs.`;
-            }else if(acceptable_1[index2]==="$"){
-                err.text=`Unkown sequence: ${cmd[i+1]} cannot be used at the end of a command
+            }else if(colum[index2]==="$"){
+                err.text=`Unkown sequence: ${cmd[i]} cannot be used at the end of a command
                 , please check out the Docs.`;
             }else{
                 err.text=`Unkown sequence: ${cmd[i]} cannot be followed by ${cmd[i+1]} in a command
@@ -63,7 +63,7 @@ function syntaxError(command){
         flag: false,
         text: ""
     };
-    if(command.length===0) return{flag: false, text: "Please enter something, we're waiting for a command..."};
+    if(command.length===0) return{flag: true, text: "Please enter something, we're waiting for a command..."};
     const accept=allIn(acceptable, command);
     if(!accept.flag){
         err.flag=true;
