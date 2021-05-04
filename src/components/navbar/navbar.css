@@ -25,3 +25,9 @@
   background-color: black;
   font-weight: 600;
 }
+
+.out-burger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,13 @@
+.burger {
+  width: 12%;
+  cursor: pointer;
+}
+
+.burger .slide {
+  width: 80%;
+  height: 4px;
+  background-color: blue;
+  border-radius: 2px;
+  margin: auto;
+  margin-top: 2px;
+}
