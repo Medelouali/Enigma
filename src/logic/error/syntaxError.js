@@ -62,8 +62,13 @@ function syntaxError(command){
     const err={
         flag: false,
         text: ""
-    };
-    if(command.length===0) return{flag: true, text: "Please enter something, we're waiting for a command..."};
+    }, reg1=/.*==.*=+/, reg2=/=+.*==.*/;
+
+    if(command.length===0) 
+        return{flag: true, text: "Please enter something, we're waiting for a command..."};
+    if(reg1.test(command) || reg2.test(command)) 
+        return{flag: true, text: "You are overusing the equal operator, please check out the Docs"};
+        
     const accept=allIn(acceptable, command);
     if(!accept.flag){
         err.flag=true;

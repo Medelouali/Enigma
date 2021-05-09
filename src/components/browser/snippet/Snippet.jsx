@@ -12,16 +12,26 @@ import cleanHistory from '../../../redux/actions/cleanHistory';
 function Snippet() {
     const dispatch=useDispatch();
     const commands = useSelector(state => state.history);
+    const variables = useSelector(state => state.variables);
+    const functions = useSelector(state => state.functions);
+
     const [command, setCommand]=useState("");
     const [currentLine, setCurrentLine]=useState(commands.length);
-
+    
     const sendCommand=(e)=>{
         e.preventDefault();
         if(special(command)){
             dispatch(cleanHistory());
         }else{
-            const response=enigma(command);
-            dispatch(history({ command, response }));
+            const response=enigma(command, { functions, variables });
+            if(response.operation==="storeVar"){
+                dispatch(history({ command, response: "" }));
+                //Do some dispatching...
+            }else if(response.operation==="storeFunc"){
+                dispatch(history({ command, response: "" }));
+                //Do some dispatching...
+            }else 
+                dispatch(history({ command, response: response.result.text }));    
         };
         setCommand("");
         setCurrentLine(commands.length);

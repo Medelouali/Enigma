@@ -12,7 +12,7 @@ function Browser() {
         <ScrollToBottom className={"browser"}>
             {hist.map((item, index)=>{
                 return <div key={`c#${index}r`}><Command command={item.command}/>
-                    <Response response={item.response}/></div>})
+                    {item.response && (<Response response={item.response}/>)}</div>})
             }
             <Snippet/>
         </ScrollToBottom>
