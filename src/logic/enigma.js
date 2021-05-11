@@ -20,6 +20,7 @@ function enigma(command, data){
         response.result.text=err.text;
         return response;
     }
+
     return execute(command, data);
 };
 

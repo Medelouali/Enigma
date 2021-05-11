@@ -1,7 +1,14 @@
+export function cutOff(cmd, index_1, index_2){
+    let str="";
+    if(index_1>index_2 || [index_1, index_2].some(item=>item<0 || item>=cmd.length)) return "";
+    for(let i=index_1; i<=index_2; i++) str+=cmd[i];
+    return str;
+}
+
 export function rightIndex(command, ind){
     let index=ind+1;
     for(; index<command.length; index++){
-        if(!(/[\d.]/.test(command[index]))) break;
+        if(/[^\d.]/.test(command[index])) break;
     }
     return index;
 }
@@ -9,7 +16,7 @@ export function rightIndex(command, ind){
 export function leftIndex(command, ind){
     let index=ind-1;
     for(; index>=0; index--){
-        if(!(/[\d.]/.test(command[index]))) break;
+        if(/[^\d.]/.test(command[index])) break;
     }
     return index;
 }
