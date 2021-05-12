@@ -36,19 +36,12 @@ export function leftNum(command, index){
     let num=null, str="";
     for(let i=index-1; i>=0; i--){
         if(/[\d.]/.test(command[i])) str+=command[i];
-else break;
-};
-
+        else break;
+    };
     num=(str==="" ? null: Number(str.split("").reverse().join("")));
     return num;
 }
 
 export function sum(command){
-    const newCommand=(command[0]!=="-" && command[0]!=="+" ? "+" + command: command);
-    const nums=[];
-    for(let i=0; i<newCommand.length; i++){
-        if(newCommand[i]==="-") nums.push(-rightNum(newCommand, i));
-        if(newCommand[i]==="+") nums.push(rightNum(newCommand, i));
-    }
-    return nums.reduce((ac, item)=>ac+item);
+    return command.match(/[+-]?\d+e\+\d+|[+-]?\d+/gi)?.map(item=>Number(item))?.reduce((ac, item)=>ac+item);
 }
