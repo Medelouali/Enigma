@@ -42,6 +42,12 @@ export function leftNum(command, index){
     return num;
 }
 
-export function sum(command){
-    return command.match(/[+-]?\d+e\+\d+|[+-]?\d+/gi)?.map(item=>Number(item))?.reduce((ac, item)=>ac+item);
+export function sum(cmd){
+    const expo=cmd.match(/[+-]?\d+\.?\d*e\+\d+[^e]/gi)?.map(item=>item.slice(0, item.length-1));
+    const wholeRegex=/^[-+]?\d+\.?\d*[^e]|[^e.][+-]?\d+\.?\d*[^e]/gi;
+    const whole=cmd.match(wholeRegex);
+
+    console.log("expo", expo);
+    console.log("whole", whole);
+    return expo.concat(whole)?.map(item=>Number(item))?.reduce((a, x)=>a+x);
 }

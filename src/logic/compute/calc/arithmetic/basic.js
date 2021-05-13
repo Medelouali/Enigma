@@ -23,7 +23,7 @@ function basic(cmd){
                 `${Number(leftNum(cmd, multIndex))* Number(rightNum(cmd, multIndex))}`+
                 cutOff(cmd, rightIndex(cmd, multIndex), cmd.length-1));
     }else if(devIndex !== -1){
-        return basic(cutOff(cmd, 0, leftIndex(cmd, devIndex), cmd.length-1) + 
+        return basic(cutOff(cmd, 0, leftIndex(cmd, devIndex)) + 
                 + `${Number(leftNum(cmd, devIndex)) / Number(rightNum(cmd, devIndex))}`+
                 cutOff(cmd, rightIndex(cmd, devIndex), cmd.length-1));
     }else return sum(cmd);
