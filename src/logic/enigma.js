@@ -1,10 +1,10 @@
 import syntaxError from "./error/syntaxError";
 import execute from "./compute/execute";
-import { cleanUp } from "./helpers/cleanUp";
+import { cleanUp, signCleaner } from "./helpers/cleanUp";
 
 function enigma(command, data){
     const response={
-        //operations: AssignFunc AssignVar Compute 
+        //operations: storeVar storeFunc Compute 
         operation: null,
         function: {},
         variable: {},
@@ -13,7 +13,9 @@ function enigma(command, data){
             text: ""
         }
     };
+
     command=cleanUp(command);
+    command=signCleaner(command);
     const err=syntaxError(command);
     if(err.flag) {
         response.result.error=true;

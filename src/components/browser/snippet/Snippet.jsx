@@ -6,6 +6,7 @@ import enigma from "../../../logic/enigma";
 import { useDispatch, useSelector } from "react-redux";
 
 import history from "../../../redux/actions/history";
+import variable from "../../../redux/actions/data/variable";
 import { special } from '../../../logic/helpers/special';
 import cleanHistory from '../../../redux/actions/cleanHistory';
 
@@ -27,6 +28,7 @@ function Snippet() {
             if(response.operation==="storeVar"){
                 dispatch(history({ command, response: "" }));
                 //Do some dispatching...
+                dispatch(variable(response.variable));
             }else if(response.operation==="storeFunc"){
                 dispatch(history({ command, response: "" }));
                 //Do some dispatching...
@@ -67,7 +69,7 @@ function Snippet() {
                     <div className="left-arrow"><ArrowForwardIosIcon/></div>
                     <div className="right-arrow"><ArrowForwardIosIcon/></div>
                 </div>
-                <input placeholder="Command goes here" value={command} type="text"
+                <input placeholder="Enigma's commands" value={command} type="text"
                         onKeyDown={handleUpDown} 
                         onChange={handleCommand}/>
                 <button type="submit"></button>

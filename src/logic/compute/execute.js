@@ -3,7 +3,7 @@ import assign from "./assign/assign";
 import calc from "./calc/calc";
 
 function execute(command, data){
-    if(assignement(command)) return assign(command);
+    if(assignement(command)) return assign(command, data);
     return calc(command, data);
 };
 

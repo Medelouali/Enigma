@@ -6,9 +6,9 @@ export function assignement(command){
     return countChar("=", command)===1;
 }
 
-export default function assign(command){
+export default function assign(command, data){
     const response={
-        //operations: AssignFunc AssignVar Compute 
+        //operations: storeVar storeFunc Compute 
         operation: null,
         function: {},
         variable: {},
@@ -17,7 +17,7 @@ export default function assign(command){
             text: "Assignement Error"
         }
     };
-    if(isAssignVar(command)) return assignVariable(command);
-    if(isAssignFunc(command)) return assignFunc(command);
+    if(isAssignVar(command)) return assignVariable(command, data);
+    if(isAssignFunc(command)) return assignFunc(command, data);
     return response;
 }

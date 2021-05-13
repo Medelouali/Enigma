@@ -29,5 +29,5 @@
 }
 
 .selected {
-  border-bottom: 2px solid rgb(141, 141, 235);
+  border: 1px double rgb(150, 150, 233);
 }
