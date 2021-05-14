@@ -3,6 +3,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
   margin: auto;
+  background-color: #2d2c2e;
+  padding: 4px;
 }
 
 .name {

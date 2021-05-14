@@ -4,7 +4,6 @@ import { cleanUp, signCleaner } from "./helpers/cleanUp";
 
 function enigma(command, data){
     const response={
-        //operations: storeVar storeFunc Compute 
         operation: null,
         function: {},
         variable: {},

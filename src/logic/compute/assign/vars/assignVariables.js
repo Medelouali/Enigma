@@ -10,7 +10,6 @@ export function isAssignVar(command){
 export function assignVariable(command, data){
     const parts=command.match(/(\w+)=(.+)/i);
     const response={
-        //operations: AssignFunc AssignVar Compute 
         operation: "storeVar",
         function: {},
         variable: {

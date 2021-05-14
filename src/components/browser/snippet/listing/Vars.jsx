@@ -6,11 +6,13 @@ function Vars() {
 
     return(
         <div className="vars">
+            <hr/>
             <Func name="Variable" value="Value" type="Type"/>
             <hr/>
             {variables.map(va=>{
                 return <Func name={va.name} value={va.value} type={va.type}/>
             })}
+            <hr/>
         </div>
     )
 }
