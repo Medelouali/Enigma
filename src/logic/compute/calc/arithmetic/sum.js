@@ -43,28 +43,16 @@ export function leftNum(command, index){
 }
 
 export function sum(cmd){
-    const expo=cmd.match(/[+-]?\d+\.?\d*e\+\d+[^e]/gi)?.filter(x=>x!==undefined)?.map(x=>x.slice(0, x.length-1));
-    const alone=cmd.match(/^[-+]?\d+\.?\d*$/gi);
-    const start=cmd.match(/^[-+]?[\d.]+[^e]/gi)?.map(x=>x.slice(0, x.length-1));
-    const end=cmd.match(/[^e][+-][\d.]+$/gi)?.filter(x=>x!==undefined)?.map(x=>x.slice(1));
-    const middle=cmd.match(/[^e][-+][\d.]+[+-]/gi)?.filter(x=>x!==undefined)?.map(x=>x.slice(1, x.length-1));
-
-    // const whole=cmd.match(/^[-+]?\d+\.?\d*$/gi)
-    //                 ?.concat(cmd.match(/[^e][+-][\d.]+$/gi)?.map(x=>x.slice(1)))
-    //                 ?.concat(cmd.match(/[^e][-+][\d.]+[+-]/gi)?.map(x=>x.slice(1, x.length-1)));
-    // console.log(cmd);
-    // console.log("expo", expo);
-    // console.log("whole", whole);
-    // console.log(cmd.match(/[^e][+-][\d.]+$/gi)?.map(x=>x.slice(1)));
-    // console.log(cmd.match(/[^e][-+][\d.]+[+-]/gi)?.map(x=>x.slice(1, x.length-1)));
-    // //console.log(cmd.match(/[^e][-+][\d.]+$/gi));
-    // return expo?.concat(whole)?.map(item=>Number(item))?.reduce((a, x)=>a+x);
-
-    console.log("expo", expo);
-    console.log("alone", alone);
-    console.log("start", start);
-    console.log("end", end);
-    console.log("middle", middle);
-    // return [...expo, ...alone, ...end, ...middle].filter(x=>x).map(x=>Number(x)).reduce((a, x)=>x+a);
+    let nums=[], temp=(/[-+]/.test(cmd[0]) ? cmd: "+" + cmd), sign=1;
+    const expo=temp.match(/[+-]?\d+\.?\d*e\+\d+/gi)?.map(x=>x.slice(0, x.length-1));
+    expo?.forEach(e=>{
+        nums.push(Number(e));
+        temp=temp.replace(e, "+0");
+    });
+    for(let i=0; i<temp.length; i++){
+        sign=(temp[i]==="+" ? 1:(temp[i]==="-"? -1: 0));
+        if(sign) nums.push(sign*Number(rightNum(temp, i)));
+    }
+    return nums.reduce((a, x)=>x+a);
 }
 

@@ -15,7 +15,7 @@ export function assignVariable(command, data){
         function: {},
         variable: {
             name: parts[1],
-            type: "string",
+            type: "Number",
             value: calc(parts[2], data).result.text,
         },
         result:{

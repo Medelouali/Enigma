@@ -21,19 +21,24 @@ function Snippet() {
     
     const sendCommand=(e)=>{
         e.preventDefault();
+        let listing=false;
         if(special(command)){
-            dispatch(cleanHistory());
+            if(command==="$variables" || command==="$functions"){
+                dispatch(history({command, response: "", listing}));
+                dispatch(history({command, response: "", listing: true}));
+            }else
+                dispatch(cleanHistory());
         }else{
             const response=enigma(command, { functions, variables });
             if(response.operation==="storeVar"){
-                dispatch(history({ command, response: "" }));
+                dispatch(history({ command, response: "", listing }));
                 //Do some dispatching...
                 dispatch(variable(response.variable));
             }else if(response.operation==="storeFunc"){
-                dispatch(history({ command, response: "" }));
+                dispatch(history({ command, response: "", listing }));
                 //Do some dispatching...
             }else 
-                dispatch(history({ command, response: response.result.text }));    
+                dispatch(history({ command, response: response.result.text, listing }));    
         };
         setCommand("");
         setCurrentLine(commands.length);
