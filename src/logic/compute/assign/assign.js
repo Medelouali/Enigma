@@ -1,9 +1,8 @@
-import { countChar } from "../../helpers/count";
 import { assignFunc, isAssignFunc } from "./funcs/assignFunctions";
 import { assignVariable, isAssignVar } from "./vars/assignVariables";
 
 export function assignement(command){
-    return countChar("=", command)===1;
+    return /[^=]+=[^=]+/.test(command);
 }
 
 export default function assign(command, data){
@@ -14,7 +13,7 @@ export default function assign(command, data){
         variable: {},
         result:{
             error: true,
-            text: "Assignement Error"
+            text: "Cannot assign to a constant, check out the Docs please"
         }
     };
     if(isAssignVar(command)) return assignVariable(command, data);

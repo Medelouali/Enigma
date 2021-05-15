@@ -9,6 +9,7 @@ import history from "../../../redux/actions/history";
 import variable from "../../../redux/actions/data/variable";
 import { special } from '../../../logic/helpers/special';
 import cleanHistory from '../../../redux/actions/cleanHistory';
+import func from '../../../redux/actions/data/function';
 
 function Snippet() {
     const dispatch=useDispatch();
@@ -23,11 +24,12 @@ function Snippet() {
         e.preventDefault();
         let listing=false;
         if(special(command)){
-            if(command==="$variables" || command==="$functions"){
-                dispatch(history({command, response: "", listing}));
-                dispatch(history({command, response: "", listing: true}));
-            }else
+            if(command==="$clear")
                 dispatch(cleanHistory());
+            else{
+                dispatch(history({command, response: "", listing: false}));
+                dispatch(history({command, response: "", listing: command}));
+            }
         }else{
             const response=enigma(command, { functions, variables });
             if(response.operation==="storeVar"){
@@ -37,6 +39,7 @@ function Snippet() {
             }else if(response.operation==="storeFunc"){
                 dispatch(history({ command, response: "", listing }));
                 //Do some dispatching...
+                dispatch(func(response.function));
             }else 
                 dispatch(history({ command, response: response.result.text, listing }));    
         };

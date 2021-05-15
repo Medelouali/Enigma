@@ -2,20 +2,38 @@
 // ! -> ^ -> *, / -> +, -;
 
 import { signCleaner } from "../../../helpers/cleanUp";
+import calc from "../calc";
 import { abs, facto, floor, pow } from "./math";
 import { cutOff, leftIndex, leftNum, rightIndex, rightNum, sum } from "./sum";
 
-export function basic(cmd){
+export function basic(cmd, data){
     const inner=cmd.match(/\W\([^()]+\)/gi).map(x=>x.slice(2, x.length-1));
     if(!inner) return innerBasic(cmd);
     for(let i=0; i<inner.length; i++) cmd=cmd.replace(inner[i], innerBasic(inner[i]));
-    return innerBasic(cmd);
+    return innerBasic(cmd, data);
 }
-function innerBasic(command){
+function innerBasic(command, data){
     const cmd=signCleaner(command);
-    const [factIndex, powIndex, restIndex, multIndex, devIndex]=[ cmd.indexOf("!"), cmd.indexOf("^"), 
-                                        cmd.indexOf("%"), cmd.indexOf("*"), cmd.indexOf("/") ];
-    if(factIndex !== -1)
+    const [factIndex, powIndex, restIndex, multIndex, devIndex, eqIndex, gIndex, lIndex]=[ 
+                            cmd.indexOf("!"), cmd.indexOf("^"), cmd.indexOf("%"), 
+                            cmd.indexOf("*"), cmd.indexOf("/"), cmd.indexOf("=="),
+                            cmd.indexOf(">"), cmd.indexOf("<") ];
+    if(eqIndex!==-1){
+        const bool=calc(cutOff(command, 0, eqIndex-1), data).result.text===
+                        calc(cutOff(command, eqIndex+2, command.length-1), data).result.text;
+        if(bool) return "True";
+        return "False";
+    }else if(gIndex!==-1){
+        const bool=calc(cutOff(command, 0, gIndex-1), data).result.text>
+                        calc(cutOff(command, gIndex+1, command.length-1), data).result.text;
+        if(bool) return "True";
+        return "False";
+    }else if(lIndex!==-1){
+        const bool=calc(cutOff(command, 0, lIndex-1), data).result.text<
+                        calc(cutOff(command, lIndex+1, command.length-1), data).result.text;
+        if(bool) return "True";
+        return "False";
+    }else if(factIndex !== -1)
         return innerBasic(cutOff(cmd, 0, leftIndex(cmd, factIndex), cmd.length-1) + 
             facto(Number(leftNum(cmd, factIndex))).toString() + cutOff(cmd, factIndex+1, cmd.length-1));
     else if(restIndex!==-1){

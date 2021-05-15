@@ -3,12 +3,12 @@ import calc from "../../calc/calc";
 
 
 export function isAssignVar(command){
-    const regex=/\w+=.+/i;
+    const regex=/[a-z_]+\d*=.+/i;
     return regex.test(command);
 }
 
 export function assignVariable(command, data){
-    const parts=command.match(/(\w+)=(.+)/i);
+    const parts=command.match(/([a-z_]+\d*)=(.+)/i);
     const response={
         operation: "storeVar",
         function: {},

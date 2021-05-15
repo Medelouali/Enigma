@@ -7,10 +7,10 @@ function Vars() {
     return(
         <div className="vars">
             <hr/>
-            <Func name="Variable" value="Value" type="Type"/>
+            <Func key={"-1"} name="Variable" value="Value" type="Type"/>
             <hr/>
-            {variables.map(va=>{
-                return <Func name={va.name} value={va.value} type={va.type}/>
+            {variables.map((va, i)=>{
+                return <Func key={va.name+i} name={va.name} value={va.value} type={va.type}/>
             })}
             <hr/>
         </div>

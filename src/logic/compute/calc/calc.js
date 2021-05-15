@@ -12,7 +12,7 @@ function calc(command, data){
         }
     };
     command=replaceVariables(command, data.variables);
-    response.result.text=basic(command);
+    response.result.text=basic(command, data);
     return response;
 }
 export default calc;

@@ -3,7 +3,7 @@
 export function replaceStr(command, oldValue, newValue){
     const index=command.indexOf(oldValue);
     if(index!==-1){
-        if(/[^w]/.test(command[index+oldValue.length]))
+        if(/[^w(]/.test(command[index+oldValue.length]))
             return replaceStr(command.replace(oldValue, newValue), oldValue, newValue);
     };
     return command;

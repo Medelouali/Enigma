@@ -22,3 +22,28 @@
   color: rgb(84, 43, 235);
   width: 100%;
 }
+
+.funcs {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #2d2c2e;
+  border: 0.1px solid rgb(56, 56, 58);
+}
+
+.var {
+  color: rgb(212, 209, 228);
+}
+
+.par {
+  color: rgb(198, 199, 243);
+}
+
+.exp {
+  color: rgb(148, 148, 156);
+}
+
+.dom {
+  color: rgb(209, 43, 43);
+}
