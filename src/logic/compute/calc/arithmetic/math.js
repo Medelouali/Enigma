@@ -9,3 +9,11 @@ export function facto(num){
 export function pow(x, y){
     return Math.pow(x, y);
 }
+
+export function abs(x){
+    return Math.abs(x);
+}
+
+export function floor(x){
+    return Math.floor(x);
+}
