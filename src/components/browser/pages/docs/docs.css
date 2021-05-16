@@ -26,4 +26,11 @@
 .comp {
   grid-area: 2/2/3/3;
   border-left: 0.1px solid rgb(101, 101, 112);
+  padding-left: 2px;
+}
+
+.icon {
+  justify-self: end;
+  display: flex;
+  justify-items: center;
 }
