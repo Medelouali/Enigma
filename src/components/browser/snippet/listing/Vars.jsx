@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function Vars() {
     const variables = useSelector(state => state.variables);
-
+    if(variables.length===0) return <div className=""></div>;
     return(
         <div className="vars">
             <hr/>

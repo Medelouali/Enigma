@@ -24,6 +24,8 @@ function Func({name, variables, parameters, expression, domaine}) {
 
 function Funcs() {
     const functions = useSelector(state => state.functions);
+    if(functions.length===0) return <Func name="No functions yet, please add some..." 
+            variables="" parameters="" expression="" domaine=""/>;
     return (
         <div className="">
             <hr />

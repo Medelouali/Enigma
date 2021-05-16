@@ -1,0 +1,29 @@
+.doc-0 {
+  display: grid;
+  grid-template-columns: 0% 1fr;
+  width: 100%;
+  background-color: #2d2c2e;
+}
+
+.doc {
+  display: grid;
+  grid-template-columns: 3% 1fr;
+  grid-template-rows: auto auto;
+  width: 100%;
+}
+
+.title {
+  grid-area: 1/1/2/3;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 4% 1fr;
+}
+
+.title-p {
+  letter-spacing: 1px;
+}
+
+.comp {
+  grid-area: 2/2/3/3;
+  border-left: 0.1px solid rgb(101, 101, 112);
+}
