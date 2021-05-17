@@ -4,6 +4,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   background-color: rgb(247, 245, 250);
+  font-family: Poppins, sans-serif;
 }
 
 .App-logo {
