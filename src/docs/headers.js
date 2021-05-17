@@ -151,9 +151,9 @@ const docData={
 			}
 		},
 
-	"Numerical Computing": "",
-	"Hacking With Enigma": "",
-	"Graphs": ""
+	"Numerical Computing": "Will be built soon",
+	"Hacking With Enigma": "Will be built soon",
+	"Graphs": "Will be built soon"
 };
 
 export default docData;
