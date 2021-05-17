@@ -1,15 +1,22 @@
-.doc-0 {
+.doc-1 {
   display: grid;
-  grid-template-columns: 0% 1fr;
+  grid-template-columns: 0 1fr;
   width: 100%;
   background-color: #2d2c2e;
 }
 
+.docs {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: auto;
+}
 .doc {
   display: grid;
-  grid-template-columns: 3% 1fr;
+  grid-template-columns: 5% 1fr;
   grid-template-rows: auto auto;
   width: 100%;
+  margin-left: 5px;
 }
 
 .title {
@@ -30,6 +37,9 @@
   border-left: 0.1px solid rgb(101, 101, 112);
   padding-left: 2px;
   color: rgb(152, 152, 158);
+  width: 100%;
+  max-width: 100% !important;
+  padding-right: 6px;
 }
 
 .icon {
@@ -40,5 +50,27 @@
 
 .icon .MuiSvgIcon-root {
   fill: rgb(110, 111, 204);
-  padding: 3px;
+  margin-left: 5px;
+}
+
+.col-1 {
+  width: 60%;
+  margin: auto;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  margin: auto;
+}
+.col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+.table {
+  border: 1px solid rgb(61, 60, 60);
+  border-radius: 4px;
 }

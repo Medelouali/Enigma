@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 import ViewQuiltOutlinedIcon from '@material-ui/icons/ViewQuiltOutlined';
 
-function Doc({level, title, comp}) {
+function Doc({title, comp}) {
     const  [open, setOpen] = useState(false);
     const handleDoc=()=>{
         setOpen(!open);
     }
     return (
-        <div className={`doc-${level}`}>
+        <div className="doc-1">
             <div className="empty"></div>
             <div className="doc">
                 <div className="title" onClick={handleDoc} >
