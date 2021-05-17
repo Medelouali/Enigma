@@ -12,7 +12,8 @@ function Doc({level, title, comp}) {
             <div className="empty"></div>
             <div className="doc">
                 <div className="title" onClick={handleDoc} >
-                    <div className="icon">{!open ? <ViewQuiltIcon/>: <ViewQuiltOutlinedIcon/>}</div>
+                    <div className="icon">{comp!=="" && 
+                        (!open ? <ViewQuiltIcon/>: <ViewQuiltOutlinedIcon/>)}</div>
                     <h5 className="title-p">{title}</h5>
                 </div>
                 {open && <div className="comp">{comp}</div>}

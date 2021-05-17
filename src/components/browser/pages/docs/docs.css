@@ -20,7 +20,9 @@
 }
 
 .title-p {
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: rgb(216, 200, 243);
+  font-style: italic;
 }
 
 .comp {
@@ -33,4 +35,9 @@
   justify-self: end;
   display: flex;
   justify-items: center;
+}
+
+.icon .MuiSvgIcon-root {
+  fill: rgb(110, 111, 204);
+  padding: 3px;
 }
