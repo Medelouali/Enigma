@@ -18,9 +18,6 @@ export function toJsx(query){
     const [open, close]=[ query.indexOf("[["), query.indexOf("]]") ];
     if(open===-1 || close===-1) return query;
     const [part1, part2, part3]=[ query.slice(0, open), query.slice(open+2, close), query.slice(close+2) ];
-    console.log(part1);
-    console.log(part2);
-    console.log(part3);
     const data=[];
     const lines=part2.split("***");
     let colums=-1;

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 import ViewQuiltOutlinedIcon from '@material-ui/icons/ViewQuiltOutlined';
 
 function Doc({title, comp}) {
     const  [open, setOpen] = useState(false);
+    const divRef=useRef(null);
     const handleDoc=()=>{
         setOpen(!open);
+        if(divRef.current) divRef.current.scrollIntoView({ behavior: "smooth" , block: "center" });
     }
     return (
-        <div className="doc-1">
+        <div ref={divRef} className="doc-1">
             <div className="empty"></div>
             <div className="doc">
                 <div className="title" onClick={handleDoc} >

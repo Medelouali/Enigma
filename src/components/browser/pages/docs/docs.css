@@ -40,6 +40,9 @@
   width: 100%;
   max-width: 100% !important;
   padding-right: 6px;
+  transition: 1s ease-in all;
+  animation: heightIn 2s ease-in forwards;
+  animation: fadeIn 0.3s ease-out forwards;
 }
 
 .icon {
@@ -85,4 +88,34 @@
   font-weight: 600;
   border: 1px solid rgb(151, 151, 240);
   cursor: pointer;
+}
+
+.center-docs {
+  width: 60%;
+  display: grid;
+  place-items: center;
+  height: 99%;
+  border: 1px solid rgb(51, 49, 49);
+  border-radius: 4px;
+  padding: 1%;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes heightIn {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
 }
