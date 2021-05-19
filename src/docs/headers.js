@@ -42,15 +42,17 @@ const docData={
 					As convention, Enigma variables must follow the same rules as other programming languages, 
 					in other words, they have to start with a letter or underscore and not a number, 
 				for example:
+				[[
 				x, value , name, time_0, data_0a are valid Enigma variables while 2_a, 1d are not valid 
-				variables so the interpreter will echo an error in such a case.`,
+				variables so the interpreter will echo an error in such a case.]]`,
 			"Types": {
 				"Numbers":{
 						"Enigma consider numbers as real numbers and their use is of couse straight forward, for example: x=0 degree=100.023 hash=0xfafffaafffa bool=1 Enigma supports a variaty of numbers formats:": "",
 						"Decimals":`
 								These are the numbers humans are familiar with, it's base 10(digits from 0->9)
 								, these include numbers like:
-								100, 100.23, 1.14, 2021 and so on...`,
+								[[
+								100, 100.23, 1.14, 2021 and so on...]]`,
 						"Hexadecimals":`
 								These are the most loved numbers by programmers so excluding them would be a 
 								strange thing to do, this is the base 16, it uses digits from 0 to 9 plus 
@@ -74,8 +76,10 @@ const docData={
 				"Strings":`
 						Most of the time we deal with strings as data type, strings on Enigma are no different 
 					from other programming languages, here's how to use them:
-					phrase="I got lucky today!" 
+					[[
+					phrase="I got lucky today!" *** 
 					word='El Ouali is the creator of enigma'
+					]]
 					As you might have noticed, you can use single or double quotes both do the trick.`,
 				"Matrices":`
 						Enigma uses the Matrix data type to hold collection of numerical data and manipulate 
@@ -127,7 +131,9 @@ const docData={
 		"Enigma functions features" :{
 			"Math Feature":`
 				This feature is purelly mathematical here's the syntax:
+					[[
 					functionName(variable_1, variable_2, ..., variable_n)=Expression
+					]]
 					Examples:
 					[[
 					G(p)=1/p *** 
@@ -138,8 +144,10 @@ const docData={
 					the definition domaine of the function to plot it if needed.
 				Of course there are some limitations to this feature that the next one solve, these are things 
 				like:
-					*/No Recursion
-					**/ One Line Code
+					[[
+					*/No Recursion***
+					**/ One Line Code***
+					]]
 					Just a tip, when dealing with mathematical functions and analyzing data, this type is 
 					perfect for you but in case of writing more code into your function, consider using the 
 					next feature. `,
