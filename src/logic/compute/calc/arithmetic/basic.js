@@ -21,18 +21,18 @@ function innerBasic(command, data){
     if(eqIndex!==-1){
         const bool=calc(cutOff(command, 0, eqIndex-1), data).result.text===
                         calc(cutOff(command, eqIndex+2, command.length-1), data).result.text;
-        if(bool) return "True";
-        return "False";
+        if(bool) return "true";
+        return "false";
     }else if(gIndex!==-1){
         const bool=calc(cutOff(command, 0, gIndex-1), data).result.text>
                         calc(cutOff(command, gIndex+1, command.length-1), data).result.text;
-        if(bool) return "True";
-        return "False";
+        if(bool) return "true";
+        return "false";
     }else if(lIndex!==-1){
         const bool=calc(cutOff(command, 0, lIndex-1), data).result.text<
                         calc(cutOff(command, lIndex+1, command.length-1), data).result.text;
-        if(bool) return "True";
-        return "False";
+        if(bool) return "true";
+        return "false";
     }else if(factIndex !== -1)
         return innerBasic(cutOff(cmd, 0, leftIndex(cmd, factIndex), cmd.length-1) + 
             facto(Number(leftNum(cmd, factIndex))).toString() + cutOff(cmd, factIndex+1, cmd.length-1));

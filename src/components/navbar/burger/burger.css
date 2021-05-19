@@ -14,12 +14,20 @@
 
 .enigma-name {
   font-family: Lobster, sans-serif;
+  color: rgb(16, 16, 243);
+  font-weight: 900;
+  font-size: 1.5em;
 }
 
 .menu {
   cursor: pointer;
 }
-
+.menu .MuiSvgIcon-root {
+  fill: rgb(58, 58, 202);
+}
+.menu .MuiSvgIcon-root:hover {
+  fill: rgb(147, 147, 231);
+}
 .list {
   position: absolute;
   top: 0;
@@ -66,4 +74,9 @@
   100% {
     transform: rotateZ(360deg);
   }
+}
+
+.on-page {
+  color: blue;
+  background-color: rgb(202, 202, 226);
 }

@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./burger.css";
 
 import HighlightOffRoundedIcon from '@material-ui/icons/HighlightOffRounded';
@@ -9,6 +9,8 @@ import pager from '../../../redux/actions/pager';
 
 function Burger({items}) {
     const [closed, setClosed]=useState(true);
+    const page = useSelector(state => state.pager);
+
     const dispatch = useDispatch();
 
     const handleBurger=()=>{
@@ -32,7 +34,8 @@ function Burger({items}) {
             <div className={"list" + (closed ? "": " move-left")}>
                 <div onClick={handleBurger} className={"close-burger"+ (!closed? " turn-it": "")}><HighlightOffRoundedIcon/></div>
                 {items.map((item, i)=>
-                    <div onClick={handleList(item)} key={i} className="list-item">{item}</div>)
+                    <div onClick={handleList(item)} key={i} 
+                        className={"list-item" + (page===item ? " on-page": "") }>{item}</div>)
                 }
             </div>
         </div>

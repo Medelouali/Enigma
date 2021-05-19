@@ -23,6 +23,7 @@ function Snippet() {
     const sendCommand=(e)=>{
         e.preventDefault();
         let listing=false;
+
         if(special(command)){
             if(command==="$clear")
                 dispatch(cleanHistory());

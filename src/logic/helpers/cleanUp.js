@@ -1,3 +1,4 @@
+
 export function signCleaner(command){
     while(/[+]{2}/.test(command)) command=command.replace("++", "+");
     while(/[-]{2}/.test(command)) command=command.replace("--", "+");

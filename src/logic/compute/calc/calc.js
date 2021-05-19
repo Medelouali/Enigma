@@ -1,3 +1,4 @@
+import builtIns from "../../builtIn/builtIns";
 import { replaceVariables } from "../../helpers/replaceStr";
 import basic from "./arithmetic/basic";
 
@@ -11,7 +12,7 @@ function calc(command, data){
             text: "Calculating"
         }
     };
-    command=replaceVariables(command, data.variables);
+    command=replaceVariables(command, data.variables.concat(builtIns.constants));
     response.result.text=basic(command, data);
     return response;
 }
