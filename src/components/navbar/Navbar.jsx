@@ -2,6 +2,8 @@ import React from 'react';
 import Burger from './burger/Burger';
 import { useMedia } from "use-media";
 import Link from './Link';
+import Logo from './Logo';
+
 import "./navbar.css";
 
 function Navbar() {
@@ -10,7 +12,12 @@ function Navbar() {
     if(isMini) return <Burger items={pages}/>;
     return (
         <div className="navbar"> 
-            {pages.map((item, i)=><Link name={item} key={`${item}#${i}${item}`}/>)}
+            <div className="inner-navbar">
+                <Logo/>
+                <div className="links">
+                    {pages.map((item, i)=><Link name={item} key={`${item}#${i}${item}`}/>)}
+                </div>
+            </div>
         </div>
     );
 }

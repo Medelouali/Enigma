@@ -2,6 +2,7 @@
   width: 100% !important;
   overflow: hidden;
   max-width: 100%;
+  padding: 4px;
 }
 
 .navBar {
@@ -80,4 +81,13 @@
   color: blue;
   background-color: rgb(202, 202, 226);
   font-weight: bold;
+}
+
+.enigma .MuiSvgIcon-root {
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background-color: blue;
+  fill: white;
+  display: grid;
+  place-items: center;
+  padding: 2px;
 }
