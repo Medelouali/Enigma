@@ -36,7 +36,7 @@
   grid-area: 2/2/3/3;
   border-left: 0.1px solid rgb(101, 101, 112);
   padding-left: 2px;
-  color: rgb(142, 142, 148);
+  color: rgb(142, 142, 148) !important;
   width: 100%;
   max-width: 100% !important;
   padding-right: 6px;
