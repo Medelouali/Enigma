@@ -40,8 +40,8 @@
   width: 100%;
   max-width: 100% !important;
   padding-right: 6px;
-  animation: heightIn 2s ease-in forwards;
-  animation: fadeIn 0.5s ease-out forwards;
+  /* animation: heightIn 2s ease-in forwards;
+  animation: fadeIn 0.5s ease-out forwards; */
 }
 
 .icon {
