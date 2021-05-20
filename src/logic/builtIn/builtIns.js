@@ -3,9 +3,9 @@ import math from "./modules/math";
  
 const builtIns={
     constants,
-    modules:{
+    modules:[
         math
-    }
+    ]
 }
 
 export default builtIns;
