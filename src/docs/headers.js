@@ -11,12 +11,6 @@ const docData={
  		While using Enigma Interpreter just keep in mind this: "We have built Enigma because we are problem 
 		solvers so please use this tool to solve problems"`,
 	"Enigma Interpreter": {
-		// "Semicolons": `
-		// 	Any Enigma command must end with a semicolon, otherwise it's throw an error.
-		// 	Thus you can chain multiple commands on single line which is very cool like:
-		// 	[[
-		// 	x=23 t=x-23 w=x*t val=cos(sin(1/x))
-		// 	]]`,
 		"Operators(Arithemitic+Logical)" :`
 				Enigma Interpreter supports all different kind of arithmetic operators that others languages 
 				use, and here's a table of all the ops that are supported:
@@ -25,7 +19,7 @@ const docData={
 				^				**Power ***
 				%				**Modulus ***
 				//				**Whole part of auclidien division ***
-				!				**Not/Negation Or Factorial ***
+				!				**Factorial ***
 				&& 				**And ***
 				|| 				**Or ***
 				| 				**Bitwise Or ***

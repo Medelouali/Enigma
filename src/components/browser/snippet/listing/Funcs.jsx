@@ -33,7 +33,8 @@ function Funcs() {
             <hr />
             {functions.map((f, i)=>{
                 return <Func key={`${f.name}#${i}`} name={f.name} variables={f.variables.join(" ")} 
-                            expression={f.expression} parameters={f.parameters.join(" ")} 
+                            expression={f.expression} 
+                            parameters={f.parameters?.join(" ") ? f.parameters?.join(" "): ""} 
                             domaine={f.domaine}/>
             })}
             <hr />

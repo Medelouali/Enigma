@@ -1,5 +1,6 @@
 // import basic from "../../calc/arithmetic/basic";
 import builtIns from "../../../builtIn/builtIns";
+import undefinedVars from "../../calc/arithmetic/undefinedVars";
 import calc from "../../calc/calc";
 
 
@@ -19,7 +20,13 @@ export function assignVariable(command, data){
             text: ""
         }
     };
-
+    const allVars=data.variables.concat(builtIns.constants);
+    const undefinedVs=undefinedVars(parts[2], allVars);
+    if(undefinedVs.length!==0){
+        response.result.text=`The variable [ ${undefinedVs[0]} ] is not defined, please define it before using it`;
+        return response;
+    };
+    
     if(builtIns.constants.some(x=>x.name===parts[1])){
         response.result.text=`${parts[1]} is a builtIn constant, you cannot assign to it, choose another variable name.`;
         response.result.error=true;

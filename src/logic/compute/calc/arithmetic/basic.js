@@ -1,38 +1,27 @@
-
-// ! -> ^ -> *, / -> +, -;
-
+import error from "../../../error/error";
 import { signCleaner } from "../../../helpers/cleanUp";
-import calc from "../calc";
 import { abs, facto, floor, pow } from "./math";
+import { logical } from "./operators";
 import { cutOff, leftIndex, leftNum, rightIndex, rightNum, sum } from "./sum";
 
+
 export function basic(cmd, data){
-    const inner=cmd.match(/\W\([^()]+\)/gi).map(x=>x.slice(2, x.length-1));
+    const inner=cmd.match(/[+-]\([^()]+\)/gi).map(x=>x.slice(2, x.length-1));
     if(!inner) return innerBasic(cmd);
-    for(let i=0; i<inner.length; i++) cmd=cmd.replace(inner[i], innerBasic(inner[i]));
+    for(let i=0; i<inner.length; i++) {
+        cmd=cmd.replace(inner[i], signCleaner(inner[i][0] + innerBasic(inner[i])));
+    };
     return innerBasic(cmd, data);
 }
+
 function innerBasic(command, data){
     const cmd=signCleaner(command);
-    const [factIndex, powIndex, restIndex, multIndex, devIndex, eqIndex, gIndex, lIndex]=[ 
+    const log=logical(cmd, data);
+    const [factIndex, powIndex, restIndex, multIndex, devIndex, wholeDev]=[ 
                             cmd.indexOf("!"), cmd.indexOf("^"), cmd.indexOf("%"), 
-                            cmd.indexOf("*"), cmd.indexOf("/"), cmd.indexOf("=="),
-                            cmd.indexOf(">"), cmd.indexOf("<") ];
-    if(eqIndex!==-1){
-        const bool=calc(cutOff(command, 0, eqIndex-1), data).result.text===
-                        calc(cutOff(command, eqIndex+2, command.length-1), data).result.text;
-        if(bool) return "true";
-        return "false";
-    }else if(gIndex!==-1){
-        const bool=calc(cutOff(command, 0, gIndex-1), data).result.text>
-                        calc(cutOff(command, gIndex+1, command.length-1), data).result.text;
-        if(bool) return "true";
-        return "false";
-    }else if(lIndex!==-1){
-        const bool=calc(cutOff(command, 0, lIndex-1), data).result.text<
-                        calc(cutOff(command, lIndex+1, command.length-1), data).result.text;
-        if(bool) return "true";
-        return "false";
+                            cmd.indexOf("*"), cmd.indexOf("/"), cmd.indexOf("//") ];
+    if(log!==false){
+        return log;
     }else if(factIndex !== -1)
         return innerBasic(cutOff(cmd, 0, leftIndex(cmd, factIndex), cmd.length-1) + 
             facto(Number(leftNum(cmd, factIndex))).toString() + cutOff(cmd, factIndex+1, cmd.length-1));
@@ -55,7 +44,12 @@ function innerBasic(command, data){
         return innerBasic(cutOff(cmd, 0, leftIndex(cmd, multIndex), cmd.length-1) + 
                 `${Number(leftNum(cmd, multIndex))* Number(rightNum(cmd, multIndex))}`+
                 cutOff(cmd, rightIndex(cmd, multIndex), cmd.length-1));
+    }else if(wholeDev !== -1){
+        return innerBasic(cutOff(cmd, 0, leftIndex(cmd, wholeDev), cmd.length-1) + 
+                `${floor(Number(leftNum(cmd, wholeDev))/Number(rightNum(cmd, wholeDev+1)))}`+
+                cutOff(cmd, rightIndex(cmd, wholeDev+1), cmd.length-1));
     }else if(devIndex !== -1){
+        if(Number(rightNum(cmd, devIndex))===0) return error("Computation Error", "division by 0");
         return innerBasic(cutOff(cmd, 0, leftIndex(cmd, devIndex)) + 
                 + `${Number(leftNum(cmd, devIndex)) / Number(rightNum(cmd, devIndex))}`+
                 cutOff(cmd, rightIndex(cmd, devIndex), cmd.length-1));

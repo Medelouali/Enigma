@@ -4,7 +4,7 @@ const undefinedVars=(command, varsList)=>{
         else return x;
     });
     if(!matches) return [];
-    return matches.filter(x=>varsList.every(v=>v!==x));
+    return matches.filter(x=>varsList.every(v=>x!==v.name));
 }
 
 export const undefinedFuncs=(command, funcsList)=>{

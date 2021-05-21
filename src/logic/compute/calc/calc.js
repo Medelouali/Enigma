@@ -14,10 +14,8 @@ function calc(command, data){
         }
     };
     const allVars=data.variables.concat(builtIns.constants);
-    // const allVars=data.functions.concat(builtIns.modules);
     command=replaceVariables(command, allVars);
     const undefinedVs=undefinedVars(command, allVars);
-    // const undefinedFs=undefinedFuncs(command, )
     if(undefinedVs.length!==0){
         response.result.text=`The variable [ ${undefinedVs[0]} ] is not defined, please define it before using it`;
         return response;

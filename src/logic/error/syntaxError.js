@@ -18,7 +18,7 @@ function allIn(big, small){
     for(; i<small.length; i++){
         if(!oneIn(big, small[i])){
             flag=false;
-            text=small[i] + " is not acceptable as a character, please check out the Docs for more details."
+            text=small[i] + " is not acceptable as a character, please check out the Docs for more details 📝"
             break;
         };
     };
@@ -43,14 +43,14 @@ function order(command){
         if(matrix[index1][index2]==="0"){
             err.flag=true;
             if(row[index1]==="#"){
-                err.text=`Unkown sequence: ${cmd[i+1]} cannot be used at the beginning of a command
-                , please check out the Docs.`;
+                err.text=`Syntax Error: ${cmd[i+1]} cannot be used at the beginning of a command
+                , please check out the Docs 📝`;
             }else if(colum[index2]==="$"){
-                err.text=`Unkown sequence: ${cmd[i]} cannot be used at the end of a command
-                , please check out the Docs.`;
+                err.text=`Syntax Error: ${cmd[i]} cannot be used at the end of a command
+                , please check out the Docs 📝`;
             }else{
-                err.text=`Unkown sequence: ${cmd[i]} cannot be followed by ${cmd[i+1]} in a command
-                , please check out the Docs.`;
+                err.text=`Syntax Error: ${cmd[i]} cannot be followed by ${cmd[i+1]} in a command
+                , please check out the Docs 📝`;
             };
             break;
         };
@@ -65,9 +65,9 @@ function syntaxError(command){
     }, reg1=/.*==.*=+/, reg2=/=+.*==.*/;
 
     if(command.length===0) 
-        return{flag: true, text: "Please enter something, we're waiting for a command..."};
+        return{flag: true, text: "Please enter something, we're waiting for a command..., check the Docs for commands 📝"};
     if(reg1.test(command) || reg2.test(command)) 
-        return{flag: true, text: "You are overusing the equal operator, please check out the Docs"};
+        return{flag: true, text: "You are overusing the equal operator, please check out the Docs 📝"};
         
     const accept=allIn(acceptable, command);
     if(!accept.flag){
