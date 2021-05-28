@@ -1,6 +1,8 @@
 
 
 const constants=[
+    { name:  "false" , value:  0 },
+    { name:  "true" , value:  1 },
     { name:  "E" , value:  Math.E },
     { name: "LN2"  , value:  Math.LN2 },
     { name: "LN10"     , value:  Math.LN10 },	

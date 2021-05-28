@@ -19,7 +19,8 @@ function calc(command, data){
     if(undefinedVs.length!==0){
         response.result.text=`The variable [ ${undefinedVs[0]} ] is not defined, please define it before using it`;
         return response;
-    }
+    };
+    
     response.result.text=basic(command, data);
     return response;
 }

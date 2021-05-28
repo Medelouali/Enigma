@@ -10,6 +10,17 @@ const docData={
 	concept and ensuring that you know how to use it in your field using examples. 
  		While using Enigma Interpreter just keep in mind this: "We have built Enigma because we are problem 
 		solvers so please use this tool to solve problems"`,
+	"UX features": `
+		Enigma Ui offers so many UX features that makes the user-ui interaction so smooth and friendly usable,
+		some of these features are implemented and some not integrated yet, but don't worry they'll be certainly present 
+		in the future features of Enigma, theses features are the followning:
+		[[
+			History Loop ** No need to retype the same command twice, use the up and down key to rewind your history***
+			Autocompletion**Enigma will complete commands for you based on what you're typing(comming soon)***
+			Real Time Updates**Once you assigned some variable no need to retype the command to review the values, 
+			your history is updated instantly and you can see vars popping up right away
+		]]
+		`,
 	"Enigma Interpreter": {
 		"Operators(Arithemitic+Logical)" :`
 				Enigma Interpreter supports all different kind of arithmetic operators that others languages 
@@ -80,7 +91,7 @@ const docData={
 					that data in an easy way here how to use it:
 					[[
 					I=[1, 0; 0, 1] *** 
-					O=[2, 34; 23 -1] ***
+					O=[2, 34; 23, -1] ***
 					S=O-I ***
 					P=O*I ***
 					A=2*I+O ***

@@ -1,4 +1,5 @@
 import matrix from "../variables/syntaxMatrix";
+import symetry from "./symetry";
 
 const acceptable="zxcvbnmasdfghjklqwertyuiopZXCVBNMASDFGHJKLQWERTYUIOP0123456789!%^&|/*()_+-,.<>{}[]=";
 
@@ -74,7 +75,9 @@ function syntaxError(command){
         err.flag=true;
         err.text=accept.text;
         return err;
-    }
+    };
+    const sym=symetry(command);
+    if(sym.flag) return sym;
     return order(command);
 };
 

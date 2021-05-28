@@ -11,10 +11,10 @@ export default function reducer(state=[], action){
 }
 /*
     function={
-        name,
-        variables,
-        parameters,
-        domaine,
-        expression
+        name: "",
+        variables: [],
+        parameters, [],
+        domaine: "",
+        expression: ""
     }
 */
