@@ -10,7 +10,9 @@ export function isAssignVar(command){
 }
 
 export function assignVariable(command, data){
-    const parts=command.match(/([a-z_]+\d*)=(.+)/i);
+    const parts=command.match(/([a-z_]\w*)=(.+)/i);
+    console.log(parts[1]);
+    console.log(parts[2]);
     const response={
         operation: "",
         function: {},

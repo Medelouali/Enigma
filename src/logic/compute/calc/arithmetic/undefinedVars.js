@@ -1,6 +1,6 @@
 const undefinedVars=(command, varsList)=>{
-    const matches=command.match(/([a-z_]+[\d_]*[^(])|([a-z_]+[\d_]*)$/gi)?.map(x=>{
-        if(x[x.length-1]==="(") return x.slice(0, x.length-1);
+    const matches=command.match(/([a-z_]+\w*[^(])|([a-z_]+\w*)$/gi)?.map(x=>{
+        if(/[a-z_]+\w*[^(]/.test(x)) return x.slice(0, x.length-1);
         else return x;
     });
     if(!matches) return [];
@@ -8,7 +8,7 @@ const undefinedVars=(command, varsList)=>{
 }
 
 export const undefinedFuncs=(command, funcsList)=>{
-    return command.match(/[a-z_]+[\d_]*\(/gi)?.map(x=>x.slice(0, x.length-1))
+    return command.match(/[a-z_]+\w*\(/gi)?.map(x=>x.slice(0, x.length-1))
         ?.filter(x=>funcsList.every(i=>i!==x));
 };
 

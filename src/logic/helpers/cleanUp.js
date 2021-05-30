@@ -12,7 +12,14 @@ export function signCleaner(command){
 
 export function cleanUp(cmd){
     let clean="";
+    const matches=cmd.match(/(\W[\d.]+|^[\d.]+)([a-z_])/i);
+    console.log(matches);
+    if(matches){
+        cmd=cmd.replace(matches[1], matches[1] + "*");
+        return cleanUp(cmd);
+    };
     for(let i=0; i<cmd.length; i++) clean+=(cmd[i]!==" " ? cmd[i]: "");
+
     return clean;
 };
 
