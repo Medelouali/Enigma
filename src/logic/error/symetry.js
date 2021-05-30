@@ -7,20 +7,19 @@ function symetry(cmd){
         text: ""
     };
 
-    const copy=cmd, indexClose=copy.indexOf(")");
+    const indexClose=cmd.indexOf(")");
     if(indexClose!==-1){
-        let str=cutOff(copy, 0, indexClose-1);
+        let str=cutOff(cmd, 0, indexClose-1);
         if(/.*\([^(]*$/.test(str)){
             const strLen=str.length;
-            for(let i=strLen-1; i>=0; i--) if(str[i]==="("){ str=str.split().splice(strLen-1-i, 1).join(""); break;};
-            console.log(copy);
-            return symetry(str + cutOff(copy, indexClose+1, copy.length-1));
+            for(let i=strLen-1; i>=0; i--) if(str[i]==="("){ str=str.split("").splice(strLen-1-i, 1).join(""); break;};
+            return symetry(str + cutOff(cmd, indexClose+1, cmd.length-1));
         }else{
             err.flag=true;
             err.text=error("Syntax Error", "Missed open parentheses");
         }
     }else{
-        if(/^.*\([^)]*$/.test(copy)){
+        if(/^.*\([^)]*$/.test(cmd)){
             err.flag=true;
             err.text=error("Syntax Error", "Missed closed parentheses");
         }

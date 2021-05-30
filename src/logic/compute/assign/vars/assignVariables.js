@@ -1,4 +1,3 @@
-// import basic from "../../calc/arithmetic/basic";
 import builtIns from "../../../builtIn/builtIns";
 import undefinedVars from "../../calc/arithmetic/undefinedVars";
 import calc from "../../calc/calc";
@@ -11,8 +10,7 @@ export function isAssignVar(command){
 
 export function assignVariable(command, data){
     const parts=command.match(/([a-z_]\w*)=(.+)/i);
-    console.log(parts[1]);
-    console.log(parts[2]);
+
     const response={
         operation: "",
         function: {},
