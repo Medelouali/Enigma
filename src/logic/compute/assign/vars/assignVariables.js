@@ -9,6 +9,7 @@ export function isAssignVar(command){
 }
 
 export function assignVariable(command, data){
+    command=command + "+0";
     const parts=command.match(/([a-z_]\w*)=(.+)/i);
 
     const response={
@@ -31,7 +32,8 @@ export function assignVariable(command, data){
         response.result.text=`${parts[1]} is a builtIn constant, you cannot assign to it, choose another variable name.`;
         response.result.error=true;
         return response;
-    }
+    };
+
     response.operation="storeVar";
     response.variable={
         name: parts[1],
