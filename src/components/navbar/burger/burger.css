@@ -49,9 +49,10 @@
 
 @keyframes moveLeft {
   100% {
-    transform: translateY(0%);
+    transform: rotateY(0);
   }
 }
+
 .list .close-burger {
   justify-self: end;
   margin: 10px;
@@ -68,10 +69,13 @@
   font-weight: 800;
 }
 .turn-it {
-  animation: turnIt 1s ease-out forwards;
+  animation: turnIt 1.5s ease-out forwards;
 }
 
 @keyframes turnIt {
+  0% {
+    transform: rotateZ(0);
+  }
   100% {
     transform: rotateZ(360deg);
   }

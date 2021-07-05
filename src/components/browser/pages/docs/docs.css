@@ -24,6 +24,7 @@
   cursor: pointer;
   display: grid;
   grid-template-columns: 4% 1fr;
+  max-width: 100%;
 }
 
 .title-p {

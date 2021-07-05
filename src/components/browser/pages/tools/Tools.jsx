@@ -1,10 +1,15 @@
 import React from 'react';
+import { motion } from "framer-motion";
 
 function Tools() {
     return (
-        <div className="tools">
+        <motion.div className="tools"
+            initial={{x: "-100vw"}}
+            animate={{x: 0}}
+            transition={{duration: 0.5}}
+        >
             Tools Page Is Not Built Yet
-        </div>
+        </motion.div>
     )
 }
 

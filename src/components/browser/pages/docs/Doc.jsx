@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 import ViewQuiltOutlinedIcon from '@material-ui/icons/ViewQuiltOutlined';
+import { motion } from "framer-motion";
 
 function Doc({title, comp}) {
     const  [open, setOpen] = useState(false);
@@ -13,11 +14,13 @@ function Doc({title, comp}) {
         <div ref={divRef} className="doc-1">
             <div className="empty"></div>
             <div className="doc">
-                <div className="title" onClick={handleDoc} >
+                <motion.div className="title" onClick={handleDoc} 
+                    whileHover={{scale: 1.1, originX: 0}}
+                >
                     <div className="icon">{comp!==<></> &&
                         (!open ? <ViewQuiltIcon/>: <ViewQuiltOutlinedIcon/>)}</div>
                     <h5 className="title-p">{title}</h5>
-                </div>
+                </motion.div>
                 {open && <div className="comp">{comp}</div>}
             </div>
         </div>
